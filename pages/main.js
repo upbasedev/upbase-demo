@@ -69,13 +69,12 @@ const PricingComponent = () => {
     console.log(err);
   });
 
-  const url = `https://api-dev.upbase.dev/get_video?stripe_price_ids[]=price_1JOwmEKSkowr7yEvFol7IKsl&stripe_price_ids[]=price_1JHzvCKSkowr7yEvf7fznUGd&vid=643eee61-c6c2-4d6d-a661-2e3ff2b14620&link=vz-4b2854f0-bc5.b-cdn.net&jwt=${jwt}`;
+  const url = `https://api-dev.upbase.dev/get_video.m3u8?stripe_price_ids[]=price_1JOwmEKSkowr7yEvFol7IKsl&stripe_price_ids[]=price_1JHzvCKSkowr7yEvf7fznUGd&vid=643eee61-c6c2-4d6d-a661-2e3ff2b14620&link=vz-4b2854f0-bc5.b-cdn.net&jwt=${jwt}`;
   return (
     <>
       {count == 1 &&
       <>
-        <ReactPlayer url={url} controls={true}  />
-        <div style={{color: 'white', marginTop: '20px'}}>To watch this video - load the page in Safari (HLS video)</div>
+        <ReactPlayer url={url} controls={true} />
         <div style={{marginTop: '30px'}}>
           <Button>
             <a onClick={fetchManage} style={{color: 'white'}}>Manage Subscription</a> 
