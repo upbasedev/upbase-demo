@@ -15,6 +15,7 @@ const PricingComponent = () => {
   const [count, setCount] = useState(0);
   const router = useRouter();
   let jwt = router.query.jwt;
+  let url = "";
   useEffect(() => {
     if (jwt) {
       const fetchHello = axios.post('/api/info', {
@@ -26,6 +27,7 @@ const PricingComponent = () => {
             Router.push(data.data.data.user.checkout_url);
           } else {
             setCount(1);
+            url = `https://api-dev.upbase.dev/get_video.m3u8?stripe_price_ids[]=price_1JOwmEKSkowr7yEvFol7IKsl&stripe_price_ids[]=price_1JHzvCKSkowr7yEvf7fznUGd&vid=643eee61-c6c2-4d6d-a661-2e3ff2b14620&link=vz-4b2854f0-bc5.b-cdn.net&jwt=${jwt}`;
           }
         }).catch((err) => {
           Router.push("/signin");
@@ -38,6 +40,7 @@ const PricingComponent = () => {
       }).then((data) => {
         if (data.data.data.user.subscribed) {
           setCount(1);
+          url = `https://api-dev.upbase.dev/get_video.m3u8?stripe_price_ids[]=price_1JOwmEKSkowr7yEvFol7IKsl&stripe_price_ids[]=price_1JHzvCKSkowr7yEvf7fznUGd&vid=643eee61-c6c2-4d6d-a661-2e3ff2b14620&link=vz-4b2854f0-bc5.b-cdn.net&jwt=${jwt}`;
         } else {
           setCount(2);
         }
@@ -66,7 +69,6 @@ const PricingComponent = () => {
     console.log(err);
   });
 
-  const url = `https://api-dev.upbase.dev/get_video.m3u8?stripe_price_ids[]=price_1JOwmEKSkowr7yEvFol7IKsl&stripe_price_ids[]=price_1JHzvCKSkowr7yEvf7fznUGd&vid=643eee61-c6c2-4d6d-a661-2e3ff2b14620&link=vz-4b2854f0-bc5.b-cdn.net&jwt=${jwt}`;
   return (
     <>
       {count == 1 &&
