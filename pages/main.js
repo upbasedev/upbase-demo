@@ -17,30 +17,22 @@ const PricingComponent = () => {
   let jwt = router.query.jwt;
   if (!jwt) {
     jwt = ls.get('upbase_jwt');
+  } else {
+    ls.set('update_jwt', jwt);
   }
   useEffect(() => {
     if (jwt) {
-      const fetchHello = axios.post('/api/info', {
-          jwt: jwt
-        }).then((data) => {
-          ls.set('upbase_jwt', jwt);
-          
-          if (!data.data.data.user.subscribed) {
-            Router.push(data.data.data.user.checkout_url);
-          } else {
-            setCount(1);
-          }
-        }).catch((err) => {
-          Router.push("/signin");
-        });
-    } else {
       const fetchHello = axios.post('/api/info', {
         jwt: jwt
       }).then((data) => {
         if (data.data.data.user.subscribed) {
           setCount(1);
         } else {
-          setCount(2);
+          if (data.data.data.user.checkout_url) {
+            Router.push(data.data.data.user.checkout_url);
+          } else {
+            setCount(2);
+          }
         }
       }).catch((err) => {
         Router.push("/signin");
