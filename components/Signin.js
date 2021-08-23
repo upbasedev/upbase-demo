@@ -4,9 +4,11 @@ import axios from 'axios';
 import Router from "next/router";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
 
 const Signin = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [count, setCount] = useState(0);
   const onSubmit = data => {
     const fetchHello = axios.post('/api/login', {
       username: data.username,
@@ -14,9 +16,13 @@ const Signin = () => {
     }).then((data) => {
       Router.push({ pathname: "/main",  query: { jwt: data.data.data.jwt }});
     }).catch((err) => {
-      console.log(err);
+      setCount(1);
     });
   };
+
+  const setZero = () => {
+    setCount(0);
+  }
 
   return (
     <div className="flex flex-col justify-center items-center px-3 dark:bg-gray-600 min-h-screen">
@@ -43,6 +49,7 @@ const Signin = () => {
                       name="username"
                       type="text"
                       required
+                      onClick={setZero}
                       className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none"
                       placeholder={"username"}
                       {...register("username", { required: true })}
@@ -55,11 +62,19 @@ const Signin = () => {
                       name="code"
                       type="text"
                       required
+                      onClick={setZero}
                       className="appearance-none relative block w-full px-3 py-3 ring-1 ring-gray-300 dark:ring-gray-600 ring-opacity-80 placeholder-gray-500 text-gray-900 rounded-lg focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 text-sm leading-none"
                       placeholder={"code"}
                       {...register("code", { required: true })}
                     />
                   </div>
+                </div>
+                <div>
+                  {count == 1 && 
+                    <div style={{color: 'red'}}>
+                      Access Denied
+                    </div>
+                  }
                 </div>
 
                 <Button type="submit" style={{marginTop: '10px'}}>

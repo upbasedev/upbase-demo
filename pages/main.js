@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import NextLink from "next/link";
 import ls from 'local-storage';
 import useAxios from 'axios-hooks';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
