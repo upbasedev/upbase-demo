@@ -8,6 +8,8 @@ import ls from 'local-storage';
 import useAxios from 'axios-hooks';
 import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const PricingComponent = () => {
   const [count, setCount] = useState(0);
@@ -73,15 +75,19 @@ const PricingComponent = () => {
       {count == 1 &&
       <>
         <ReactPlayer url={url} controls={true}  />
-        <div>To watch this video - load the page in Safari (HLS video)</div>
-        <div>
-          <button onClick={fetchManage}>Manage Subscription</button> 
+        <div style={{color: 'white', marginTop: '20px'}}>To watch this video - load the page in Safari (HLS video)</div>
+        <div style={{marginTop: '30px'}}>
+          <Button>
+            <a onClick={fetchManage} style={{color: 'white'}}>Manage Subscription</a> 
+          </Button>
         </div>
       </>
       }
       {count == 2 && 
            <>
-           <button onClick={fetchSub}>Create Subscription</button> 
+            <Button>
+              <a onClick={fetchSub} style={{color: 'white'}}>Create Subscription</a> 
+            </Button>
          </>    
       }
     </>

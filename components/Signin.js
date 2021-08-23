@@ -2,6 +2,8 @@ import { Card, CardBody, Link, Logo, Ripple } from "ui";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import Router from "next/router";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Signin = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -17,7 +19,7 @@ const Signin = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center px-3 bg-white dark:bg-gray-600 min-h-screen">
+    <div className="flex flex-col justify-center items-center px-3 dark:bg-gray-600 min-h-screen">
       <div className="w-full max-w-screen-xl">
         <div className="block md:flex flex-wrap items-center -mx-2">
           <div className="w-full md:w-1/2 px-2 flex justify-center md:justify-end">
@@ -30,7 +32,7 @@ const Signin = () => {
                   <h1 className="uppercase text-2xl mb-3 font-bold leading-none text-indigo-500">
                     Login
                   </h1>
-                  <p className="text-gray-800">Login to continue</p>
+                  <p style={{color: 'white'}}>Login to continue</p>
                 </div>
 
                 <div className="rounded-lg shadow-sm">
@@ -60,13 +62,13 @@ const Signin = () => {
                   </div>
                 </div>
 
-                <button
-                  className="shadow-sm relative w-full flex justify-center py-3 px-4 border border-transparent text-sm rounded-lg text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out mb-3 leading-none"
-                  type="submit"
-                >
+                <Button style={{marginTop: '10px'}}>
+                  <button
+                    type="submit"
+                  >
                   {"Login"}
-                  <Ripple />
-                </button>
+                  </button>
+                </Button>
               </form>
             </div>
           </div>

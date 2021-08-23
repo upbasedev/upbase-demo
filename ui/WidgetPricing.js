@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { Ripple } from "./Ripple";
 import { useForm } from "react-hook-form";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const WidgetPricing = ({ title, subtitle, price, features, icon, handleClick }) => (
   <>
@@ -26,13 +28,12 @@ export const WidgetPricing = ({ title, subtitle, price, features, icon, handleCl
     <div className="mt-auto">
       <p className="font-bold text-5xl mb-4">
         <span className="symbol">$</span>
-        <span>{price}</span>
+        <span>{price} per month</span>
       </p>
 
-      <a className="relative inline-flex justify-center rounded-lg border border-gray-200 px-4 py-3 bg-white text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 text-sm leading-none mb-4">
-        <span>Choose plan</span>
-        <Ripple color="black" handleClick={handleClick} />
-      </a>
+      <Button>
+        <a onClick={handleClick} style={{color: 'white'}}>Choose plan</a>
+      </Button>
     </div>
   </>
 );

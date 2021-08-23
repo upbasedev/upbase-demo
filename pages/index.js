@@ -4,6 +4,8 @@ import axios from 'axios';
 import Router from "next/router";
 import { useRouter } from "next/router";
 import NextLink from "next/link";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const data = [
   {
@@ -65,13 +67,15 @@ const PricingComponent = () => {
     return (
       <>
         <div>
-          <div>Please scan this QR code in Authy to get your login information then login</div>
+          <div style={{color: 'white', marginBottom: '20px'}}>Please scan this QR code in Authy to get your login information then login</div>
           <img src={src} alt="QR Code" />
         </div>
-        <div>
-          <NextLink href="/signin">
-            <a>Login</a>
-          </NextLink>
+        <div style={{marginTop: '30px'}}>
+          <Button>
+            <NextLink href="/signin">
+              <a style={{color: 'white', textDecoration: 'none'}}>Login</a>
+            </NextLink>
+          </Button>
         </div>
       </>
     );
