@@ -31,8 +31,8 @@ export const WidgetPricing = ({ title, subtitle, price, features, icon, handleCl
         <span>{price} per month</span>
       </p>
 
-      <Button>
-        <a onClick={handleClick} style={{color: 'white'}}>Choose plan</a>
+      <Button onClick={handleClick}>
+        <a style={{color: 'white'}}>Choose plan</a>
       </Button>
     </div>
   </>

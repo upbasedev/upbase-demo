@@ -62,12 +62,8 @@ const Signin = () => {
                   </div>
                 </div>
 
-                <Button style={{marginTop: '10px'}}>
-                  <button
-                    type="submit"
-                  >
-                  {"Login"}
-                  </button>
+                <Button type="submit" style={{marginTop: '10px'}}>
+                  <a>Login</a>
                 </Button>
               </form>
             </div>

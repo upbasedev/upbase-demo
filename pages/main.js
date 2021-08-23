@@ -75,16 +75,16 @@ const PricingComponent = () => {
       <>
         <ReactPlayer url={url} controls={true} />
         <div style={{marginTop: '30px'}}>
-          <Button>
-            <a onClick={fetchManage} style={{color: 'white'}}>Manage Subscription</a> 
+          <Button onClick={fetchManage}>
+            <a style={{color: 'white'}}>Manage Subscription</a> 
           </Button>
         </div>
       </>
       }
       {count == 2 && 
            <>
-            <Button>
-              <a onClick={fetchSub} style={{color: 'white'}}>Create Subscription</a> 
+            <Button onClick={fetchSub}>
+              <a style={{color: 'white'}}>Create Subscription</a> 
             </Button>
          </>    
       }
