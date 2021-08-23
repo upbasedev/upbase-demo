@@ -6,7 +6,7 @@ export default async (req, res) => {
         let response = await axios.post('https://api-dev.upbase.dev/subscribe_tenant', {
             stripe_price_id: "price_1JHzvCKSkowr7yEvf7fznUGd",
             success_url: "https://demo.upbase.com/main",
-            cancel_url: "https://demo.upbase.com"
+            cancel_url: "https://demo.upbase.com/main"
           }, {
             headers: {
               "Content-Type": "application/json",
