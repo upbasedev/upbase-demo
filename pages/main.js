@@ -31,7 +31,7 @@ const PricingComponent = () => {
           Router.push("/signin");
         });
     } else {
-      let jwt = ls.get('upbase_jwt');
+      jwt = ls.get('upbase_jwt');
       
       const fetchHello = axios.post('/api/info', {
         jwt: jwt
@@ -44,9 +44,6 @@ const PricingComponent = () => {
       }).catch((err) => {
         Router.push("/signin");
       });
-    }
-    if (!jwt) {
-      jwt = ls.get('upbase_jwt');
     }
   })
   
