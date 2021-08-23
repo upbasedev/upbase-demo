@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 import ReactPlayer from 'react-player';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import sleep from 'sleep-promise';
 
 const PricingComponent = () => {
   const [count, setCount] = useState(0);
@@ -28,11 +29,13 @@ const PricingComponent = () => {
         if (data.data.data.user.subscribed) {
           setCount(1);
         } else {
-          if (data.data.data.user.checkout_url) {
-            Router.push(data.data.data.user.checkout_url);
-          } else {
-            setCount(2);
-          }
+          sleep(1000).then(() => {
+            if (data.data.data.user.checkout_url) {
+              Router.push(data.data.data.user.checkout_url);
+            } else {
+              setCount(2);
+            }
+          });
         }
       }).catch((err) => {
         Router.push("/signin");
