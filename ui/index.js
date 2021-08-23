@@ -2,7 +2,6 @@ export * from "./Avatar";
 export * from "./Badge";
 export * from "./Card";
 export * from "./Divider";
-export * from "./Dropdown";
 export * from "./WidgetPricing";
 export * from "./Logo";
 export * from "./Loading";
