@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
-import Footer from "./Footer";
 import Head from "next/head";
-import Header from "./Header";
 import NProgress from "nprogress";
 import Router from "next/router";
 import { capitalize } from "lib";
@@ -75,8 +73,7 @@ const Page = ({ children }) => {
                 }`}
               >
                 {children}
-              </div>
-              <Footer />
+            </div>
           </>
         ) : (
           children

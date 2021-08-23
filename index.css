@@ -165,39 +165,6 @@ a {
   transform: rotate(3deg) translate(0px, -4px);
 }
 
-/* Calendar */
-/* purgecss start ignore */
-@import "node_modules/react-big-calendar/lib/css/react-big-calendar.css";
-.rbc-time-view,
-.rbc-month-view {
-  @apply border-0 rounded-b-md;
-}
-.rbc-header {
-  @apply font-medium text-right;
-}
-.rbc-header + .rbc-header {
-  @apply border-l-0;
-}
-.rbc-event {
-  @apply bg-indigo-500 rounded-md text-xs;
-}
-.rbc-day-slot .rbc-event,
-.rbc-day-bg + .rbc-day-bg,
-.rbc-month-row + .rbc-month-row,
-.rbc-header,
-.rbc-time-content > * + * > *,
-.rbc-timeslot-group,
-.rbc-time-content, .rbc-day-slot .rbc-time-slot,
-.rbc-time-header-content {
-  @apply border-gray-200 dark:border-gray-600;
-}
-.rbc-off-range-bg {
-  @apply bg-gray-100 dark:bg-gray-700;
-}
-.rbc-day-slot .rbc-time-slot {
-  border: 0;
-}
-
 /* purgecss end ignore */
 /* Divider */
 .divider::before,
