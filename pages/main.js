@@ -24,11 +24,11 @@ const PricingComponent = () => {
       const fetchHello = axios.post('/api/info', {
         jwt: jwt
       }).then((data) => {
+        ls.set('upbase_jwt', jwt);
         if (data.data.data.user.subscribed) {
           setCount(1);
         } else {
           sleep(1000).then(() => {
-            ls.set('update_jwt', jwt);
             if (data.data.data.user.checkout_url) {
               Router.push(data.data.data.user.checkout_url);
             } else {
