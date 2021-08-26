@@ -18,9 +18,7 @@ const PricingComponent = () => {
   let jwt = router.query.jwt;
   if (!jwt) {
     jwt = ls.get('upbase_jwt');
-  } else {
-    ls.set('update_jwt', jwt);
-  }
+  }  
   useEffect(() => {
     if (jwt) {
       const fetchHello = axios.post('/api/info', {
@@ -30,6 +28,7 @@ const PricingComponent = () => {
           setCount(1);
         } else {
           sleep(1000).then(() => {
+            ls.set('update_jwt', jwt);
             if (data.data.data.user.checkout_url) {
               Router.push(data.data.data.user.checkout_url);
             } else {
